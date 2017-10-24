@@ -27,9 +27,10 @@ function fixTorrent(magnetUrl)
 	'&tr=' + magnetTracker,
 		magnetNameDecode];
 }
-var client ;
+
+var wtclient;
 function nodebbwebtorrentload() {
-	client = new WebTorrent();
+	wtclient = new WebTorrent();
 	var webtorrentdivs = $(".nodebb-webtorrent");
 	for (var i = 0; i < 1; i++) {
 		webtorrentdiv = webtorrentdivs[i];
@@ -47,7 +48,7 @@ function nodebbwebtorrentload() {
 			'</p>';
 
 
-		client.add(torrentId, function (torrent) {
+		wtclient.add(torrentId, function (torrent) {
 			// Torrents can contain many files. Let's use the .mp4 file
 			var file = torrent.files.find(function (file) {
 				return file.name.endsWith('.mp4');
@@ -62,4 +63,4 @@ function nodebbwebtorrentload() {
 	}
 }
 
-$.getScript("https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js",nodebbwebtorrentload);
+// $.getScript("https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js",nodebbwebtorrentload);

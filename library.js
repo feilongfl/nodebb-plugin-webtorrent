@@ -1,5 +1,6 @@
 (function(webtorrent) {
 	"use strict";
+
 	var converts = [
 		{ // Video
 			from: /<a href="(magnet.*)">(.+)<\/a>/g,
@@ -22,7 +23,7 @@
 
 	webtorrent.addScripts = function (scripts, callback){
 		//console.log("o.o...");
-		scripts.push('/assets/src/bilibili.js');
+		scripts.push('/assets/src/webtorrent.js');
 		callback(null,scripts);
 	}
 })(module.exports);
