@@ -20,18 +20,18 @@ function fixTorrent(magnetUrl)
 	var magnetHash = magnetUrl.match(/btih:(\w+)/)[1];
 	var magnetName = magnetUrl.match(/dn=([^&]+)/)[1];
 	var magnetNameDecode = decodeURIComponent(magnetName);
-	var magnetTracker = encodeURIComponent(trackerList.join('&tr=')).replace(/%26/g,'&');
+	var magnetTracker = encodeURIComponent(trackerList.join('&tr=')).replace(/%26/g,'&').replace(/%3D/g,'=');
 
 	return ['magnet:?xt=urn:btih:' + magnetHash +
 	'&dn=' + magnetName +
 	'&tr=' + magnetTracker,
 		magnetNameDecode];
 }
-
+var client ;
 function nodebbwebtorrentload() {
-	var client = new WebTorrent();
+	client = new WebTorrent();
 	var webtorrentdivs = $(".nodebb-webtorrent");
-	for (var i = 0; i < webtorrentdivs.length; i++) {
+	for (var i = 0; i < 1; i++) {
 		webtorrentdiv = webtorrentdivs[i];
 		torrentId = fixTorrent(webtorrentdiv.innerHTML)[0];
 
@@ -43,7 +43,7 @@ function nodebbwebtorrentload() {
 			'<a src="' + fixTorrent(webtorrentdiv.innerHTML)[0] + '">' +
 			fixTorrent(webtorrentdiv.innerHTML)[0] +
 			'</a></div>' +
-			'<div class="nodebb-webtorrent-webplayer" id="nodebb-webtorrent-webplayer-"' + i + '></div>' +
+			'<div class="nodebb-webtorrent-webplayer" id="nodebb-webtorrent-webplayer-' + i + '"></div>' +
 			'</p>';
 
 
@@ -52,10 +52,12 @@ function nodebbwebtorrentload() {
 			var file = torrent.files.find(function (file) {
 				return file.name.endsWith('.mp4');
 			});
-
+			// console.log(i);
 			// Display the file by adding it to the DOM.
 			// Supports video, audio, image files, and more!
-			file.appendTo('#nodebb-webtorrent-webplayer-' + i);
+			// var d = '#nodebb-webtorrent-webplayer-0';
+			// console.log(d);
+			file.appendTo('#nodebb-webtorrent-webplayer-0');
 		})
 	}
 }
