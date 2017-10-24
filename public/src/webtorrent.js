@@ -1,3 +1,6 @@
+
+"use strict";
+
 var trackerList = [
 	//tracker for test
 	"http://10.5.199.42:24736",
@@ -33,8 +36,8 @@ function nodebbwebtorrentload() {
 	wtclient = new WebTorrent();
 	var webtorrentdivs = $(".nodebb-webtorrent");
 	for (var i = 0; i < 1; i++) {
-		webtorrentdiv = webtorrentdivs[i];
-		torrentId = fixTorrent(webtorrentdiv.innerHTML)[0];
+		var webtorrentdiv = webtorrentdivs[i];
+		var torrentId = fixTorrent(webtorrentdiv.innerHTML)[0];
 
 		webtorrentdiv.innerHTML = '<p>' +
 			'<div class="nodebb-webtorrent-name">' +
@@ -63,4 +66,7 @@ function nodebbwebtorrentload() {
 	}
 }
 
-// $.getScript("https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js",nodebbwebtorrentload);
+//万恶之源，浪费我好久时间，挂在这里
+//$.getScript("https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js",nodebbwebtorrentload);
+
+//
