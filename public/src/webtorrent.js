@@ -46,10 +46,10 @@ function nodebbwebtorrentload() {
 			'<div class="nodebb-webtorrent-magnet">' +
 			'<a src="' + fixTorrent(webtorrentdiv.innerHTML)[0] + '">' +
 			fixTorrent(webtorrentdiv.innerHTML)[0] +
-			'</a></div>' +
+			'</a>' +
+			'</div>' +
 			'<div class="nodebb-webtorrent-webplayer" id="nodebb-webtorrent-webplayer-' + i + '"></div>' +
 			'</p>';
-
 
 		wtclient.add(torrentId, function (torrent) {
 			// Torrents can contain many files. Let's use the .mp4 file
@@ -69,4 +69,8 @@ function nodebbwebtorrentload() {
 //万恶之源，浪费我好久时间，挂在这里
 //$.getScript("https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js",nodebbwebtorrentload);
 
-//
+$.ajax({
+	url: 'https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js',
+	async: true,
+	dataType: "script"
+});
