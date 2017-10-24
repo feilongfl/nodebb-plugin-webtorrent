@@ -5,7 +5,7 @@
 	"url": "https://github.com/feilongfl/nodebb-plugin-webtorrent.git",
 	"library": "./library.js",
 	"less": [
-		"waiting-ani.less"
+		"webtorrent.less"
 	],
 	"staticDirs": {
 		"lib": "public/src"
