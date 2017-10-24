@@ -11,7 +11,7 @@
 		"lib": "public/src"
 	},
 	"scripts": [
-		"public/src/waitingani.js"
+		"public/src/webtorrent.js"
 	],
 	"hooks": [
 		{ "hook": "filter:scripts.get", "method": "addScripts", "callbacked": true }
