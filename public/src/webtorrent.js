@@ -6,6 +6,7 @@ var trackerList = [
 	"http://10.5.199.42:24736",
 	"udp://10.5.199.42:24736",
 	"ws://10.5.199.42:24736",
+
 	//default tracker
 	'udp://tracker.openbittorrent.com:80',
 	'udp://tracker.leechers-paradise.org:6969',
@@ -56,21 +57,13 @@ function nodebbwebtorrentload() {
 			var file = torrent.files.find(function (file) {
 				return file.name.endsWith('.mp4');
 			});
-			// console.log(i);
-			// Display the file by adding it to the DOM.
-			// Supports video, audio, image files, and more!
-			// var d = '#nodebb-webtorrent-webplayer-0';
-			// console.log(d);
+
 			file.appendTo('#nodebb-webtorrent-webplayer-0');
 		})
 	}
 }
 
-//万恶之源，浪费我好久时间，挂在这里
-//$.getScript("https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js",nodebbwebtorrentload);
-
-$.ajax({
-	url: 'https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js',
-	async: true,
-	dataType: "script"
-});
+function loadwebtorrentlib()
+{
+	$.getScript("https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js",nodebbwebtorrentload);
+}

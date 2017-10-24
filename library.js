@@ -4,7 +4,7 @@
 	var converts = [
 		{ // Video
 			from: /<a href="(magnet.*)">(.+)<\/a>/g,
-			to: '<div><button class="btn btn-default" onclick="nodebbwebtorrentload">Load in Browser.</button></div>' +
+			to: '<div><button class="btn btn-default" onclick="loadwebtorrentlib()">Load in Browser.</button></div>' +
 			'<div class="nodebb-webtorrent">$2</div>'
 		}
 	];
