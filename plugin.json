@@ -1,8 +1,8 @@
 {
-	"id": "nodebb-plugin-waitani",
-	"name": "NodeBB waiting animation Plugin",
-	"description": "NodeBB Plugin that allows users to show animation while wait.",
-	"url": "https://github.com/feilongfl/nodebb-plugin-waitani.git",
+	"id": "nodebb-plugin-webtorrent",
+	"name": "NodeBB webtorrent Plugin",
+	"description": "NodeBB Webtorrent Plugin",
+	"url": "https://github.com/feilongfl/nodebb-plugin-webtorrent.git",
 	"library": "./library.js",
 	"less": [
 		"waiting-ani.less"
@@ -14,6 +14,7 @@
 		"public/src/webtorrent.js"
 	],
 	"hooks": [
+		{ "hook": "filter:parse.post", "method": "parse", "callbacked": true },
 		{ "hook": "filter:scripts.get", "method": "addScripts", "callbacked": true }
 	]
 }
