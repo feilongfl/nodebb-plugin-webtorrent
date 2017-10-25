@@ -7,9 +7,6 @@
   "bugs": {
     "url": "https://github.com/feilongfl/nodebb-plugin-webtorrent/issues"
   },
-  "dependencies": {
-    "webtorrent": "3.0.0"
-  },
   "bundleDependencies": false,
   "deprecated": false,
   "description": "NodeBB Plugin about webtorrent.",
