@@ -59,10 +59,10 @@ function nodebbwebtorrentload() {
 	var torrentId = fixTorrent(webtorrentdiv.innerHTML)[0];
 
 	webtorrentdiv.innerHTML = '<p>' +
-		'<div class="nodebb-webtorrent-form>"' +
-		'<div class="nodebb-webtorrent-name">' +
+		'<div class="nodebb-webtorrent-form">' +
+		'<h2 class="nodebb-webtorrent-name">' +
 		fixTorrent(webtorrentdiv.innerHTML)[1] +
-		'</div>' +
+		'</h2>' +
 		'<div class="nodebb-webtorrent-magnet">' +
 		'<a href="' + torrentId + '">' +
 		'<button class="btn btn-default">Download Magnet</button>' +
