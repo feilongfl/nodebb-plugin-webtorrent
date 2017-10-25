@@ -18,7 +18,7 @@ var trackerList = [
 	'udp://zer0day.ch:1337',
 	'wss://tracker.btorrent.xyz',
 	'wss://tracker.openwebtorrent.com',
-	'wss://tracker.fastcast.nz',
+	'wss://tracker.fastcast.nz'
 /*
 	//tracker from mikanani
 	'udp://104.238.198.186:8000/announce' ,
