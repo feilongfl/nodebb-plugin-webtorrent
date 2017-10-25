@@ -23,16 +23,25 @@ function fixTorrent(magnetUrl)
 {
 	var magnetHash = magnetUrl.match(/btih:(\w+)/)[1];
 	var magnetName = magnetUrl.match(/dn=([^&]+)/)[1];
+	var magnetOriTracker = magnetUrl.match(/&tr=([^&]+)/g);
 	var magnetNameDecode = decodeURIComponent(magnetName);
 	var magnetTracker = encodeURIComponent(trackerList.join('&tr=')).replace(/%26/g,'&').replace(/%3D/g,'=');
 
 	return ['magnet:?xt=urn:btih:' + magnetHash +
 	'&dn=' + magnetName +
-	'&tr=' + magnetTracker,
+	'&tr=' + magnetTracker + magnetUrl.match(/&tr=([^&]+)/g).join('');,//这里缺个除重
 		magnetNameDecode];
 }
 
 var wtclient;
+
+//reset torrent listener
+$(window).on('action:ajaxify.start', function(data) {
+	require(['https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js'], function (WebTorrent) {
+		wtclient = new WebTorrent();
+	});
+});
+
 function nodebbwebtorrentload() {
 	// wtclient = new WebTorrent();
 	var webtorrentdivs = $(".nodebb-webtorrent");
@@ -65,9 +74,4 @@ function nodebbwebtorrentload() {
 			})
 		});
 	}
-}
-
-function loadwebtorrentlib()
-{
-	$.getScript("https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js",nodebbwebtorrentload);
 }
