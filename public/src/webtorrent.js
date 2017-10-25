@@ -2,10 +2,12 @@
 "use strict";
 
 var trackerList = [
+/*
 	//tracker for test
 	"http://10.5.199.42:24736",
 	"udp://10.5.199.42:24736",
 	"ws://10.5.199.42:24736",
+	*/
 
 	//default tracker
 	'udp://tracker.openbittorrent.com:80',
