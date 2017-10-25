@@ -1,4 +1,5 @@
 # nodebb-plugin-webtorrent
 
-# in developing...
+## install
+> npm install https://github.com/feilongfl/nodebb-plugin-webtorrent.git
 
