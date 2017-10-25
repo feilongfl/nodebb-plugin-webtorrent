@@ -118,6 +118,23 @@ var trackerList = [
 	*/
 ];
 
+function bytesToSize(bytes) {
+    if (bytes === 0) return '0 B';
+    var k = 1000, // or 1024
+        sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+        i = Math.floor(Math.log(bytes) / Math.log(k));
+ 
+   return (bytes / Math.pow(k, i)).toPrecision(3) + ' ' + sizes[i];
+}
+
+function showinfo()
+{
+	$(".nodebb-webtorrent-info")[0].innerHTML = 'progress ' + (wtclient.progress * 100).toFixed(2) +
+	 '% ↓ ' + bytesToSize(wtclient.downloadSpeed) + 
+	 ' ↑ ' + bytesToSize(wtclient.uploadSpeed);
+	 setTimeout(showinfo,100);
+}
+
 function fixTorrent(magnetUrl)
 {
 	var magnetHash = magnetUrl.match(/btih:(\w+)/)[1];
@@ -162,6 +179,7 @@ function nodebbwebtorrentload() {
 		'<h2 class="nodebb-webtorrent-name">' +
 		fixTorrent(webtorrentdiv.innerHTML)[1] +
 		'</h2>' +
+		'<h3 class="nodebb-webtorrent-info"></h3>' +
 		'<div class="nodebb-webtorrent-magnet">' +
 		'<a href="' + torrentId + '">' +
 		'<button class="btn btn-default">Download Magnet</button>' +
@@ -175,6 +193,8 @@ function nodebbwebtorrentload() {
 
 	require(['https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js'], function (WebTorrent) {
 		wtclient = new WebTorrent();
+
+		showinfo();
 
 		wtclient.add(torrentId, function (torrent) {
 			// Torrents can contain many files. Let's use the .mp4 file
