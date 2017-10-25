@@ -17,6 +17,102 @@ var trackerList = [
 	'wss://tracker.btorrent.xyz',
 	'wss://tracker.openwebtorrent.com',
 	'wss://tracker.fastcast.nz'
+
+	//tracker from mikanani
+	'udp://104.238.198.186:8000/announce' +
+	'http://mgtracker.org:2710/announce' +
+	'http://104.238.198.186:8000/announce' +
+	'http://tracker.kamigami.org:2710/announce' +
+	'http://open.acgtracker.com:1096/announce' +
+	'http://opentracker.acgnx.se/announce' +
+	'https://opentracker.acgnx.se/announce' +
+	'http://opentracker.acgnx.com:6869/announce' +
+	'udp://tracker.opentrackr.org:1337/announce' +
+	'udp://tracker.opentrackr.org:1337/announce' +
+	'udp://tracker.coppersurfer.tk:6969/announce' +
+	'udp://tracker.leechers-paradise.org:6969/announce' +
+	'https://tr.bangumi.moe:9696/announce' +
+	'http://tr.bangumi.moe:6969/announce' +
+	'udp://tr.bangumi.moe:6969/announce' +
+	'http://t.acg.rip:6699/announce' +
+	'http://share.camoe.cn:8080/announce' +
+	'udp://tracker.doko.moe:6969/announce' +
+	'http://tracker.tfile.me/announce' +
+	'http://tracker1.itzmx.com:8080/announce' +
+	'http://tracker2.itzmx.com:6961/announce' +
+	'http://tracker3.itzmx.com:6961/announce' +
+	'http://tracker4.itzmx.com:2710/announce' +
+	'http://t.nyaatracker.com/announce' +
+	'udp://tracker.tiny-vps.com:6969/announce' +
+	'http://torrentsmd.com:8080/announce' +
+	'udp://9.rarbg.com:2710/announce' +
+	'udp://tracker.pirateparty.gr:6969/announce' +
+	'http://explodie.org:6969/announce' +
+	'http://p4p.arenabg.com:1337/announce' +
+	'udp://p4p.arenabg.com:1337/announce' +
+	'udp://tracker.internetwarriors.net:1337/announce' +
+	'udp://tracker.piratepublic.com:1337/announce' +
+	'udp://tracker.zer0day.to:1337/announce' +
+	'udp://tracker.mg64.net:6969/announce' +
+	'http://tracker.mg64.net:6881/announce' +
+	'udp://ipv4.tracker.harry.lu:80/announce' +
+	'http://ipv4.tracker.harry.lu/announce' +
+	'udp://tracker.vanitycore.co:6969/announce' +
+	'http://tracker.torrentyorg.pl/announce' +
+	'http://tracker.devil-torrents.pl/announce' +
+	'http://grifon.info/announce' +
+	'http://bt.artvid.ru:6969/announce' +
+	'http://tracker.vanitycore.co:6969/announce' +
+	'udp://tracker.grepler.com:6969/announce' +
+	'http://retracker.telecom.by/announce' +
+	'http://retracker.mgts.by/announce' +
+	'http://tracker1.wasabii.com.tw:6969/announce' +
+	'http://tracker.grepler.com:6969/announce' +
+	'http://tracker.electro-torrent.pl/announce' +
+	'http://tracker.tlm-project.org:6969/announce' +
+	'http://tracker2.wasabii.com.tw:6969/announce' +
+	'udp://retracker.lanta-net.ru:2710/announce' +
+	'udp://public.popcorn-tracker.org:6969/announce' +
+	'http://agusiq-torrents.pl:6969/announce' +
+	'udp://tracker.filetracker.pl:8089/announce' +
+	'http://tracker.filetracker.pl:8089/announce' +
+	'udp://peerfect.org:6969/announce' +
+	'http://91.218.230.81:6969/announce' +
+	'udp://tracker.kuroy.me:5944/announce' +
+	'http://tracker.kuroy.me:5944/announce' +
+	'udp://tracker.halfchub.club:6969/announce' +
+	'udp://z.crazyhd.com:2710/announce' +
+	'udp://tracker.swateam.org.uk:2710/announce' +
+	'udp://tracker.christianbro.pw:6969/announce' +
+	'udp://oscar.reyesleon.xyz:6969/announce' +
+	'udp://open.facedatabg.net:6969/announce' +
+	'udp://tracker.files.fm:6969/announce' +
+	'udp://tracker.cyberia.is:6969/announce' +
+	'udp://thetracker.org:80/announce' +
+	'http://tracker.sktorrent.net:6969/announce' +
+	'http://retracker.omsk.ru:2710/announce' +
+	'udp://tracker.openbittorrent.com:80/announce' +
+	'udp://tracker.publicbt.com:80/announce' +
+	'udp://tracker.prq.to:80/announce' +
+	'http://104.238.198.186:8000/announce' +
+	'http://94.228.192.98/announce' +
+	'http://share.dmhy.org/annonuce' +
+	'http://tracker.btcake.com/announce' +
+	'http://tracker.ktxp.com:6868/announce' +
+	'http://tracker.ktxp.com:7070/announce' +
+	'http://bt.sc-ol.com:2710/announce' +
+	'http://open.acgtracker.com:1096/announce' +
+	'http://btfile.sdo.com:6961/announce' +
+	'https://t-115.rhcloud.com/only_for_ylbud' +
+	'http://exodus.desync.com:6969/announce' +
+	'udp://coppersurfer.tk:6969/announce' +
+	'http://tracker3.torrentino.com/announce' +
+	'http://tracker2.torrentino.com/announce' +
+	'udp://open.demonii.com:1337/announce' +
+	'udp://tracker.ex.ua:80/announce' +
+	'http://pubt.net:2710/announce' +
+	'http://bigfoot1942.sektori.org:6969/announce' +
+	'udp://bt.sc-ol.com:2710/announce'
 ];
 
 function fixTorrent(magnetUrl)
