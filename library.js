@@ -4,8 +4,11 @@
 	var converts = [
 		{ // Video
 			from: /<a href="(magnet.*)">(.+)<\/a>/g,
-			to: '<div><button class="btn btn-default" onclick="nodebbwebtorrentload()">Load in Browser.</button></div>' +
-			'<div class="nodebb-webtorrent">$2</div>'
+			to: '<div class="nodebb-webtorrent-buttons">' +
+			'<button class="btn btn-default" id="nodebb-webtorrent-loadbtn" onclick="nodebbwebtorrentload()">Load in Browser.</button>' +
+			'<a href="$2"><button class="btn btn-default" onclick="nodebbwebtorrentload()">Download Magnet.</button></a>' +
+			'</div>' +
+			'<div class="nodebb-webtorrent" hidden>$2</div>'
 		}
 	];
 

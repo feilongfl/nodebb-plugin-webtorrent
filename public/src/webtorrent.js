@@ -23,55 +23,71 @@ function fixTorrent(magnetUrl)
 {
 	var magnetHash = magnetUrl.match(/btih:(\w+)/)[1];
 	var magnetName = magnetUrl.match(/dn=([^&]+)/)[1];
-	var magnetOriTracker = magnetUrl.match(/&tr=([^&]+)/g);
+	// var magnetOriTracker = magnetUrl.match(/&tr=([^&]+)/g);
 	var magnetNameDecode = decodeURIComponent(magnetName);
 	var magnetTracker = encodeURIComponent(trackerList.join('&tr=')).replace(/%26/g,'&').replace(/%3D/g,'=');
 
 	return ['magnet:?xt=urn:btih:' + magnetHash +
 	'&dn=' + magnetName +
-	'&tr=' + magnetTracker + magnetUrl.match(/&tr=([^&]+)/g).join('');,//这里缺个除重
+	magnetUrl.replace(/&amp;/g,'&').match(/&tr=([^&]+)/g).join('') + //这里缺个除重
+	'&tr=' + magnetTracker,
 		magnetNameDecode];
 }
 
 var wtclient;
+var run = false;
+var file;
 
 //reset torrent listener
 $(window).on('action:ajaxify.start', function(data) {
 	require(['https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js'], function (WebTorrent) {
 		wtclient = new WebTorrent();
 	});
+	run = false;
 });
 
 function nodebbwebtorrentload() {
 	// wtclient = new WebTorrent();
+	if(run)
+		return;
+
+	run = true;
+	// $("#nodebb-webtorrent-loadbtn").innerText = 'Loading';
+	$("#nodebb-webtorrent-loadbtn")[0].textContent = 'Loading';
 	var webtorrentdivs = $(".nodebb-webtorrent");
-	for (var i = 0; i < 1; i++) {
-		var webtorrentdiv = webtorrentdivs[i];
-		var torrentId = fixTorrent(webtorrentdiv.innerHTML)[0];
+	var webtorrentdiv = webtorrentdivs[0];
+	var torrentId = fixTorrent(webtorrentdiv.innerHTML)[0];
 
-		webtorrentdiv.innerHTML = '<p>' +
-			'<div class="nodebb-webtorrent-name">' +
-			fixTorrent(webtorrentdiv.innerHTML)[1] +
-			'</div>' +
-			'<div class="nodebb-webtorrent-magnet">' +
-			'<a src="' + fixTorrent(webtorrentdiv.innerHTML)[0] + '">' +
-			fixTorrent(webtorrentdiv.innerHTML)[0] +
-			'</a>' +
-			'</div>' +
-			'<div class="nodebb-webtorrent-webplayer" id="nodebb-webtorrent-webplayer-' + i + '"></div>' +
-			'</p>';
+	webtorrentdiv.innerHTML = '<p>' +
+		'<div class="nodebb-webtorrent-form>"' +
+		'<div class="nodebb-webtorrent-name">' +
+		fixTorrent(webtorrentdiv.innerHTML)[1] +
+		'</div>' +
+		'<div class="nodebb-webtorrent-magnet">' +
+		'<a href="' + torrentId + '">' +
+		'<button class="btn btn-default">Download Magnet</button>' +
+		'</a>' +
+		'</div>' +
+		'<div class="nodebb-webtorrent-webplayer" id="nodebb-webtorrent-webplayer-0"></div>' +
+		'</div>' +
+		'</p>';
 
-		require(['https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js'], function (WebTorrent) {
-			wtclient = new WebTorrent();
+	console.log(torrentId);
 
-			wtclient.add(torrentId, function (torrent) {
-				// Torrents can contain many files. Let's use the .mp4 file
-				var file = torrent.files.find(function (file) {
-					return file.name.endsWith('.mp4');
-				});
+	require(['https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js'], function (WebTorrent) {
+		wtclient = new WebTorrent();
 
-				file.appendTo('#nodebb-webtorrent-webplayer-0');
-			})
-		});
-	}
+		wtclient.add(torrentId, function (torrent) {
+			// Torrents can contain many files. Let's use the .mp4 file
+			file = torrent.files.find(function (file) {
+				return file.name.endsWith('.mp4');
+			});
+
+			$(".nodebb-webtorrent-buttons").hide();
+			$(".nodebb-webtorrent")[0].hidden = false;
+
+			file.appendTo('#nodebb-webtorrent-webplayer-0');
+		})
+	});
+
 }
