@@ -6,7 +6,7 @@
 			from: /<a href="(magnet.*)">(.+)<\/a>/g,
 			to: '<div class="nodebb-webtorrent-buttons">' +
 			'<button class="btn btn-default" id="nodebb-webtorrent-loadbtn" onclick="nodebbwebtorrentload()">Load in Browser.</button>' +
-			'<a href="$2"><button class="btn btn-default">Download Magnet.</button></a>' +
+			'<button class="btn btn-default" onclick="window.open(fixTorrent(\'$2\')[0]);">Download Magnet.</button>' +
 			'</div>' +
 			'<div class="nodebb-webtorrent" hidden>$2</div>'
 		}
