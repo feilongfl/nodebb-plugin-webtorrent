@@ -11,8 +11,8 @@ var trackerList = [
 	
 	
 	//cauc bb trackers
-'https://tracker6.cauc.pw/announce',
-'wss://tracker6.cauc.pw',
+'http://tracker6.cauc.pw/announce',
+'ws://tracker6.cauc.pw',
 
 	//default tracker
 	'udp://tracker.openbittorrent.com:80',
